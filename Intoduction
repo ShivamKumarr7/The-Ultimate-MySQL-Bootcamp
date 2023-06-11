@@ -1,0 +1,48 @@
+
+Q) What is database ?
+Ans --> i) A database is an organised collection of data.
+        ii) It contains method for accessing and manipulating the data.
+        
+
+
+Q) What is DBMS ?
+Ans --> DBMS stands for DataBase Management System.
+        It is a software system that organizes,modifies,manipulates and deletes the data.
+        Ex of DBMS are MySQL,Oracle,PostgreSQL,MariaDB,SQLite,MongoDB etc.
+        Database Management System acts/works on the database and provides required results.
+        
+        
+Q) What is data ?
+Ans --> Data is a collection of raw unorganized facts.
+        Data is the new oil.Everything around us is data.
+        
+        
+Q) What is Information ?
+Ans --> Information is processed and organized data.
+        
+        
+Q) What is SQL ?
+Ans --> SQL stands for Structured Query Language.
+        It is the language or the method by which we give instructions to the Database Management Systems to get desired results.
+        
+        
+Q) What is MySQL ?
+Ans --> MySQL is a Database Management System.
+        It is a relational database and it works on tables.
+        
+        
+Q) Types of Databases ?
+Ans ---> There are various kinds of databases :-
+         A few of them are :-
+         i) Centralized Database
+         ii) Distributed Database
+         iii) Relational Database
+         iv) Non-relational or NoSQL database
+         v) Cloud Database
+         vi) Object Oriented Database  
+         
+         
+ Q) Examples of Relational and Non-relational Database Management Systems ?
+ Ans --> Relational Database Management Systems --> MySQL,SQLite,MariaDB,PostgreSQL,Oracle
+         Non Relational Database Management Systems --> MongoDB,Cassandra,Couchbase,Redis
+         
