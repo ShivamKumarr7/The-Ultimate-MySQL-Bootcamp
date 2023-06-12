@@ -1,0 +1,69 @@
+
+Q1) How can we see existing databases in MySQL ?
+Ans -->  SHOW DATABASES;
+
+
+Q2) How can we create a database in MySQL ? 
+Ans --> CREATE DATABASE <name> 
+        Ex->  CREATE DATABASE sports;
+        
+        
+Q3) How to use a particular database in MySQL ?
+Ans --> USE <database_name>
+        Ex-> USE sports;
+        
+        
+ Q4) How to find/confirm that you are using a particular database ?
+ Ans --> SELECT DATABASE();
+ 
+ 
+ Q5) How to delete/drop a database ?
+ Ans --> DROP DATABASE <database_name>
+         Ex-> DROP DATABASE sports;
+         
+         
+ Q6) How to create a table in a database ?
+ Ans --> CREATE TABLE <table_name>
+         (
+         here describe the column names and use appropriate data types for it
+         );
+         
+         Ex-> CREATE TABLE cricket
+              (
+              name VARCHAR(35),
+              age INT,
+              nation VARCHAR(20)
+              );
+              
+  Q7) How to see a table ? How to see a table is created properly and in the desired way ?
+  Ans --> METHOD 1 : SHOW COLUMNS FROM <table_name>
+          Ex-> SHOW COLUMNS FROM cricket;
+          
+          METHOD 2 : DESCRIBE <table_name>
+          Ex-> DESCRIBE cricket;
+          
+          METHOD 3 : DESC <table_name>
+          Ex-> DESC cricket;
+          
+          
+ Q8) How to drop or delete a table in MySQL ?
+ Ans -> DROP TABLE <table_name>
+        Ex-> DROP TABLE cricket;
+        
+    
+ Q9) How to use comments in MySQL ?
+ Ans -> -- (i.e two dashes) are used to comment something in MySQL.
+        Ex->    -- DESC cricket;      (It wont give any results as it is commented)
+        
+        
+ Q10) What are some of the data types in MySQL ?
+ Ans --> There are various data types in MySQL, a few of them are :-
+         i) Numeric Type -->  i) INT   ii) SMALLINT  iii) MEDIUMINT   iv) TINYINT  v) BIGINT
+                              vi) DECIMAL vii) DOUBLE  viii) FLOAT  ix) BIT 
+                              
+         ii) String Type --> i) CHAR  ii) VARCHAR   iii) BINARY  iv) VARBINARY  v) BLOB
+                             vi) TEXT  vii) SMALLTEXT  viii) TINYTEXT  ix) MEDIUMTEXT  x) BIGTEXT
+                             xi) TINYBLOB  xii) MEDIUMBLOB  xiii) LOMGBLOB  xiv) ENUM
+                             
+         iii) DATE AND TIME --> i) DATE  ii) TIMESTAMP  iii) DATETIME  iv) TIME   v) YEAR
+         
