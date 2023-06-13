@@ -1,0 +1,103 @@
+
+Q1) How can be insert data into tables in MySQL ?
+Ans --> Suppose we have a table called cricket
+        i.e 
+        
+        CREATE TABLE cricket 
+        (
+        name VARCHAR(30),
+        age INT,
+        nation VARCHAR(30)
+        );
+        
+        Now to insert data into this table called 'cricket'
+        
+        INSERT INTO cricket (name,age,nation) VALUES ('dhoni',46,'india');   // inserting single entry 
+        
+ 
+Q2) How can we achieve multiple inserts into a table at a time ?
+Ans --> 
+
+      INSERT INTO cricket (name,age,nation) 
+      VALUES
+      ('smith',32,'australia'),
+      ('root',31,'england'),
+      ('starc',34,'australia'),
+      ('abd',36,'south africa');
+      
+      
+Q3) How can we check if the data we inserted into the table is correct ?
+Ans --> 
+
+      SELECT * FROM cricket;    // this will give us everything from the cricket table 
+      
+      
+Q4) Concept of Not-Null in a table ?
+Ans --> While creating table we can make sure that a particular column must have some value by making it as 'not-null' or using 'not-null'
+         
+        CREATE TABLE cricket
+        (
+        name VARCHAR(30) NOT NULL     // using not null will make sure that this entry has some value...it cant be left blank/empty
+        age INT NOT NULL
+        nation VARCHAR(30) NOT NULL 
+        );
+        
+        Now to insert data into this table we will have to provide all the three values i.e name,age and nation or else it will give error.
+        
+        
+Q5) Concept of Default in a table ?
+Ans --> While creating a table we can specify some default value for a particular column.
+
+        
+        CREATE TABLE cricket
+        (
+        name VARCHAR(30) NOT NULL,
+        age INT default 24,
+        nation VARCHAR(30) NOT NULL
+        );
+        
+        
+        Now while inserting the data into this table we can skip the age column as it has a default value.
+        
+        INSERT INTO cricket (name,nation) VALUES ('smith','australia');
+        
+        
+ Q6) Quotes in MySQL ?
+ Ans --> i) It is a good practice to always use single quotes for VARCHAR i.e 'shivam' is better than "shivam"
+         ii) Whenever we have to use 's in a VARCHAR we should use backslash to make sure the whole string is accepted.
+             i.e  'shivam\'s bat'   ---> now the whole string will be accepted because we are using backslash.
+             
+             
+ Q7) Primary Keys in SQL ?
+ Ans --> i) The primary key constraint uniquely identifies each record in a table.
+         ii) Primary keys contain unique values and cannot contain null values.
+         iii) A table can have only 1 primary key.
+         
+         
+         CREATE TABLE cricket
+         (
+         name VARCHAR(30) NOT NULL,
+         age INT NOT NULL,
+         nation VARCHAR(30) NOT NULL,
+         id PRIMARY KEY
+         );
+         
+         INSERT INTO cricket (name,age,nation,id) VALUES ('steve',29,'australia',1);
+         
+ Q8) AUTO INCREMENT ?
+ Ans --> i) We generally use auto_increment with primary keys.
+ 
+          CREATE TABLE cricket
+          (
+          name VARCHAR(30) NOT NULL,
+          age INT NOT NULL,
+          nation VARCHAR(30) NOT NULL,
+          id INT PRIMARY KEY AUTO_INCREMENT
+          );
+          
+          INSERT INTO cricket (name,age,nation) VALUES ('steve',29,'australia');
+          
+ 
+      
+        
+        
