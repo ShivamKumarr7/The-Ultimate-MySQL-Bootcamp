@@ -1,0 +1,78 @@
+
+CRUD --> CRUD STANDS FOR 
+CREATE READ UPDATE DELETE
+
+
+Suppose we have a table called cats;
+
+
+CREATE TABLE cats
+(
+cat_id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(100),
+breed VARCHAR(100),
+age INT
+);
+
+
+Q1) How to see the data or content that we have in our tables ?
+Ans --> SELECT * FROM <table_name> 
+        Ex-> SELECT * FROM cats;
+        
+        This will give the details of all the columns that exist in our table.
+        
+        Its a general way of saying "Give me all the columns from the table".
+        
+        
+Q2) Can we select or see only the column we wish to see instead of seeing the whole table everytime ?
+Ans --> Yus,we can see a particular column from a table.
+        Ex-> SELECT name FROM cats;
+             OR
+             SELECT age FROM cats;
+             OR
+             SELECT breed FROM cats;
+             OR
+             SELECT cat_id FROM cats;
+             
+             We can even see 2 or more columns at once if we name it and use the proper syntax.
+             Ex-> SELECT name,age FROM cats;
+                  OR
+                  SELECT cat_id,breed FROM cats;
+                  OR
+                  SELECT name,age,breed FROM cats;
+                  
+                  
+Q3) THE "WHERE" clause ?
+Ans-> We use WHERE to limit down the number of rows.
+      Ex-> SELECT * FROM cats WHERE age = 4;
+           OR
+           SELECT name,age FROM cats WHERE age = 4;
+           
+           
+Q4) "ALIAS"
+Ans-> We can use "AS" in SQL to temporarily change the name of a column.
+      Ex-> SELECT cat_id AS id FROM cats;
+           OR
+           SELECT cat_id AS id,name AS cat_name,age AS cat_age FROM cats;
+           
+           
+Q5) UPDATE in MySQL ?
+Ans --->  UPDATE cats SET name = 'tommy' WHERE name = 'Tabby';
+          OR
+          UPDATE cats SET name = 'fatso',age = 5 WHERE name = 'bob';
+          OR
+          UPDATE cats SET age = 14 WHERE name = 'Tabby';
+          
+          
+Q6) DELETE in MySQL ?
+Ans --> TO delete a row in MySQL we can use the below syntax 
+        DELETE FROM <table_name>;   // this will delete all the rows of the table but the table will still exist but will have no data
+        DELETE FROM <table_name> WHERE age = 4;  // this will delete all the rows where age = 4;
+        
+        Ex-> DELETE FROM cats;
+             OR
+             DELETE FROM cats WHERE age = 4;
+             OR
+             DELETE FROM cats WHERE age = cat_id;
+             
+             
