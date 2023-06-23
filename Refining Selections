@@ -1,0 +1,61 @@
+
+1) THE SQL SELECT DISTINCT STATEMENT
+   -> The SELECT DISTINCT statement is used to return only distinct or different values.
+   -> Inside a table, a column can contain duplicate values and when we only need distinct values we use this.
+
+   Ex-> SELECT DISTINCT author_lname FROM books;
+   Ex-> SELECT DISTINCT CONCAT(author_fname,' ',author_lname) AS author_name FROM books;
+
+
+2) THE SQL ORDER BY KEYWORD
+   -> The ORDER BY keyword is used to store the result-set in ascending or descending order.
+   -> The ORDER BY keyword sorts the record in ascending order by default. To sort the records in descending order we use the DESC keyword.
+
+   Ex-> SELECT book_id,title,pages FROM books ORDER BY pages;
+   Ex-> SELECT book_id,title,pages FROM books ORDER BY pages DESC;
+   Ex-> SELECT title,author_fname,author_lname FROM books ORDER BY author_fname;
+
+   ------> There are other ways in which we can use ORDER BY
+  i) Ex-> SELECT book_id,author_fname,author_lname FROM books ORDER BY 3;
+     Here the number '3' means that we should order it by 3rd columns i.e author_lname.
+
+  ii) Also,we can order by using more than one column name.
+      Ex-> SELECT book_id,title,author_fname,released_year FROM books ORDER BY author_fname,released_year;
+
+
+3) THE MySQL LIMIT CLAUSE
+   -> The LIMIT clause is used to specify the number of records to return.
+   -> It is very useful for large tables.
+
+   Ex-> SELECT * FROM books LIMIT 10;
+   Ex-> SELECT * FROM books ORDER BY pages DESC LIMIT 3;
+   Ex-> SELECT * FROM books ORDER BY released_year LIMIT 5;
+
+   --------> There are other ways in which we use LIMIT.
+   Ex-> SELECT * FROM books LIMIT 0,2;
+        OR
+        SELECT * FROM books LIMIT 1,5; 
+         ---> Here,the first number means the starting row.
+               Row starts at 0.
+         ---> Here,the second number means the total number of rows you want to be displayed.
+
+
+4) THE MySQL LIKE OPERATOR
+   -> The LIKE operator is used in a WHERE clause to search for a specific pattern in a column.
+   -> There are 2 WILDCARDS, that are used in LIKE operator.
+      i) % --> The percentage --> It means possibly zero or more characters.
+      ii) _ --> The underscore --> It means exactly one character.
+
+   Ex-> SELECT * FROM books WHERE author_fname LIKE '%a%'; 
+        --> It means the author_fname can have either 0 or 'n' characters at the start before the character 'a'.
+            And similarly it can have 0 or more character after the character 'a'.
+
+   Ex-> SELECT * FROM books WHERE author_fname LIKE '_a_';
+        --> It means the author_fname is having exactly 1 character before the character 'a' and exactly 1 character after the character 'a'.
+
+
+    ESCAPING WILDCARDS :- There are times we need to search for % or _ in the string and to ignore it or escape it we use backslash like we use for apostrophe.
+    Ex-> SELECT * FROM books WHERE title LIKE '%\%%';
+         OR
+         SELECT * FROM books WHERE title LIKE '_\__';
+
