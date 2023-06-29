@@ -1,0 +1,82 @@
+
+Q) COUNT()
+Ans --> The COUNT() function returns the number of rows that matches a specified criterion.
+
+    Ex-> SELECT COUNT(*) FROM books;
+    Ex-> SELECT COUNT(title) FROM books;
+
+    Ex-> To find the number of distinct author_fname in the books table
+         --> SELECT COUNT(DISTINCT author_fname) FROM books;
+
+    Ex-> To find the number of distinct released_year from books table
+         --> SELECT COUNT(DISTINCT released_year) AS distinct_released_year FROM books;
+
+    Ex-> Count the number of books which have "the" in their title
+         --> SELECT COUNT(*) FROM books WHERE title LIKE '%the%';
+
+
+Q) GROUP BY 
+Ans --> i) The GROUP BY statement groups rows that have the same values into summary rows like "find the number of customers in each country".
+        ii) The GROUP BY statement is often used with COUNT(),MIN(),MAX(),SUM(),AVG() i.e the aggregate functions.
+
+        Ex-> Find the number of books written by each author based on their last name 
+             --> SELECT author_lname,COUNT(*) AS books_written FROM books GROUP BY author_lname;
+
+        Ex-> Display the number of books written by each author and show it in descending order of books written
+             --> SELECT CONCAT(author_fname,' ',author_lname) AS author,COUNT(*) AS books_written FROM books GROUP BY author ORDER BY books_written DESC;
+
+
+Q) MIN() AND MAX() Basics
+Ans -->  MIN()
+         -> The MIN() function returns the smallest value of the selected column.
+         MAX()
+         -> The MAX() function returns the largest value of the selected column.
+
+         Ex-> Find the earliest released_year from books
+              --> SELECT MIN(released_year) FROM books;
+
+         EX-> Find the book with the largest number of pages 
+              --> SELECT MAX(pages) FROM books;
+
+         Ex-> Find the author whose name appears first in the dictionary
+              --> SELECT MIN(CONCAT(author_fname,' ',author_lname)) FROM books;
+
+         Q) WHAT IF I WANT TO FIND ALL THE DETAILS OF THE LARGEST BOOK IN THE TABLE ?
+         --> Here we have to use the concept of subqueries 
+             SELECT * FROM books WHERE pages = (SELECT MAX(pages) FROM books);
+
+         Q) Find the details of the books with least number of pages ?
+            --> SELECT * FROM books WHERE pages = (SELECT MIN(pages) FROM books);
+
+         Q) Find the title of the book that was released earliest ?
+            --> SELECT title,released_year FROM books WHERE title = (SELECT MIN(title) FROM books);
+
+
+Q) MIN() AND MAX() with GROUP BY
+Ans --> Q) Find the minimum and maximum released_year of books for every author ?
+        Ans --> SELECT CONCAT(author_fname,' ',author_lname) AS author,MIN(released_year),MAX(released_year),COUNT(*) AS books_written FROM books GROUP BY author;
+
+        Q) Find the longest book for each author ?
+        Ans --> SELECT CONCAT(author_fname,' ',author_lname) AS author,COUNT(*) AS books_written,MAX(pages) FROM books GROUP BY author;
+
+
+Q) SUM() 
+Ans --> The SUM() function returns the total sum of a numeric column.
+        Ex-> Find sum of all the pages of all the books in the table.
+        Ans --> SELECT SUM(pages) FROM books;
+
+        Ex-> Find the sum of pages of the books written by Jhumpa Lahiri ? 
+        Ans --> SELECT SUM(pages) FROM books WHERE author_fname = 'Jhumpa';
+
+        Ex-> Find sum of all pages of books written by each author ?
+        Ans --> SELECT CONCAT(author_fname,' ',author_lname) AS author,COUNT(*) AS books_written,SUM(pages) AS total_pages_written FROM books GROUP BY author;
+
+
+Q) AVG() 
+Ans --> The AVG() function helps us to find the average of a column.
+        Ex-> Find the average number of pages FROM books table ?
+        Ans --> SELECT AVG(pages) FROM books;
+
+        Ex-> Find the average number of pages written by each author ?
+        Ans --> SELECT CONCAT(author_fname,' ',author_lname),COUNT(*) AS books_written,AVG(pages) FROM books GROUP BY author;
+
