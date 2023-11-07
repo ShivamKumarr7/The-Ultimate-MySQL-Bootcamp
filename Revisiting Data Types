@@ -1,0 +1,113 @@
+1) CHAR VS VARCHAR
+Ans --> i) The CHAR and VARCHAR types are similar but differ in the way they are stored and retrieved.
+        ii) They also differ in maximum length and in whether trailing spaces are retained.
+
+CHAR(3) --> Only 3 or less characters are allowed.
+If it is less then 3 then MySQL will padd it to make upto 3 characters. This doesnt happen in the case of VARCHAR.
+
+--> The length of CHAR can be 0 to 255.
+--> Values are rright padded with spaces to the specified length.
+--> When values are retrieved the trailing spaces are removed.
+
+--> CHAR is faster and generally used when we have fixed inputs.
+// Ex-> PINCODE is usually of 6 digits in India. 
+//      Phone Numbers are usually 10 digits.
+// In these cases we can use CHAR.
+
+Q) What if we insert some value greater than the specified length for CHAR and VARCHAR datatypes ?
+Ans --> It will give us an error "Data too long for columns "name"" 
+        We can go and change the settings then it might truncate it.
+
+
+2) REMEMBER --> (TINY INT < SMALL INT < MEDIUM INT < INT < BIG INT)
+
+3) DECIMAL --> If we have to store decimal values we can use DECIMAL datatype. 
+   The syntax for DECIMAL data type is DECIMAL(5,2) --> here 5 represents the total number of digits in the input i.e the max number of digits. 
+                                                    --> here 2 reprsents that after the decimal we can have 2 digits at max.
+  Ex-> DECIMAL(5,2) --> 314.25 OR 56.62 or 12.1 etc 
+  DECIMAL is used to store precise values.
+
+4) FLOAT AND DOUBLE :-
+   We know that DECIMAL is more exact but takes more space.
+   If we store float or double we can stire larger numbers using less space, but it comes at the cost of precision.
+
+   FLOAT --> 4 BYTES --> 7 digits precision
+   DOUBLE --> 8 bytes --> 15 digits precision 
+
+5) DATE AND TIME 
+   We can store date and time also in MySQL.
+
+   DATE --> Values with a date but no time. 
+   DATE SYNTAX --> 'yyyy/mm/dd'
+
+   TIME --> Values wuth a time but no date.
+   TIME SYNTAX --> 'hh:mm:ss'
+
+   DATETIME --> VALUES with a DATE and TIME.
+   DATETIME SYNTAX --> 'yyyy-mm-dd hh:mm:ss'
+
+   We can use CURRENT_DATE or CURDATE();
+   We can use CURRENT_TIME or CURTIME();
+   We can use CURRENT_TIMESTAMP or NOW(); 
+
+6) DATE FUNCTIONS 
+
+   i) HOUR() --> Returns the hour ranging from 0 to 23.
+      SELECT HOUR(NOW());
+      --> 22 
+
+   ii) MINUTE() --> Retunrs the minute ranging from 0 to 59.
+       SELECT MINUTE(NOW());
+       --> 48 
+
+   iii) SECOND() --> retunrs the second ranging from 0 to 59.
+        SELECT SECOND(NOW());
+        --> 25
+
+7) FORMATTING_DATES 
+   We can use DATE_FORMAT(DATE,format_specifier) 
+   And we can use TIME_FORMAT(TIME,specifier) 
+
+   Ex-> SELECT DATE_FORMAT(NOW(),'%D');
+        5th 
+
+
+8) DATEDIFF(exp1,exp2) 
+   --> DATEDIFF returns exp1-exp2 expressed as a value in days from one date to another.
+
+9) DATE_ADD(exp1, INTERVAL 1 YEAR)
+   ---> DATE_ADD(NOW(),INTERVAL 1 YEAR)
+
+10) DATE_SUB(exp1,INTERVAL 1 YEAR)
+   ---> DATE_SUB(NOW(),INTERVAL 1 YEAR)
+
+11) Similarly we have TIMEDIFF(),TIME_ADD(),TIME_SUB() 
+
+12) TIMESTAMP --> The timestamp data type is used for values that contain both date and time parts.
+    TIMESTAMP is very similar to DATETIME.
+
+    NOW() is actually a TIMESTAMP but not DATETIME.
+
+13) How can I use DEFAULT with TIMESTAMP ?
+Ans --> created_at TIMESTAMP DEFAULT NOW() 
+
+14) ON UPDATE ?
+Ans --> created_at TIMESTAMP ON UPDATE NOW() 
+
+15) What is difference between TIMESTAMP and DATETIME ?
+Ans --> i) DATETIME provides a wider range.
+        ii) TIMESTAMP takes less space and lesser range.
+
+16) How to find the current day when we know the date and time ?
+Ans --> SELECT DAYNAME(NOW());
+
+17) How to find the current month when we know the date and time ?
+Ans --> SELECT MONTHNAME(NOW());
+
+18) %d --> 00 to 31
+    %m --> 01 to 12 
+
+19) We can write anything in between the format specifiers in case of DATE_FORMAT and TIME_FORMAT 
+    Ex->  DATE_FORMAT(NOW(),'%Y - %m - %d');
+
+
